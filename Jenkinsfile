@@ -12,7 +12,7 @@ pipeline {
             steps {
                 cleanWs()
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+                git branch: 'main', url: 'https://github.com/Anka912/Blebleble.git'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean verify"
@@ -26,10 +26,9 @@ pipeline {
                 success {
                     junit allowEmptyResults: true, testResults: '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
-                    slackSend channel: 'jenkins-ark', message: 'ble ble ble '
+                    slackSend channel: 'jenkins-ark', message: 'ble ble ble :)'
                 }
             }
         }
     }
 }
-
